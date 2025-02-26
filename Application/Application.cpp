@@ -8,7 +8,7 @@ int main()
     Renderer renderer;
 
 	Entity entity1 = 1;
-	renderer.LoadModel("C:/Users/woule/Documents/Cpp/SilverClad/Assets/3D_Assets/cottageHouse.obj", entity1);
+	renderer.LoadModel("D:/Cpp/SilverClad/Assets/3D_Assets/cottageHouse.obj", entity1);
 
     while (!WindowShouldClose()) 
     {
