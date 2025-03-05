@@ -15,11 +15,11 @@ Renderer::~Renderer()
 	}
 }
 
-void Renderer::LoadModel(const std::string& path, Entity entity)
+void Renderer::LoadModel(const std::string& path, Entity entity, TransformComponent transform)
 {
 	Model model = ::LoadModel(path.c_str());
 	ModelComponent modelComponent = { model };
-	m_renderSystem.AddEntity(entity, modelComponent);
+	m_renderSystem.AddEntity(entity, modelComponent, transform);
 	m_entities.push_back(entity);
 }
 void Renderer::LoadTexture(const std::string& path, Entity entity)
@@ -37,10 +37,18 @@ void Renderer::Render()
 	m_renderSystem.Render();
 }
 
-void RenderSystem::AddEntity(Entity entity, ModelComponent modelComponent)
+void RenderSystem::AddEntity(Entity entity, ModelComponent modelComponent, TransformComponent transformComponent)
 {
 	m_entities[entity.GetID()] = modelComponent;
+	m_transforms[entity.GetID()] = transformComponent;
 }
+
+void RenderSystem::SetTransform(Entity entity, const TransformComponent& transform)
+{
+	m_transforms[entity.GetID()] = transform;
+}
+
+
 void RenderSystem::Render()
 {
 	for (const auto& entity : m_entities)
@@ -48,13 +56,11 @@ void RenderSystem::Render()
 		std::cout << "Rendering entity ID: " << entity.first << std::endl;
 		std::cout << "Mesh count: " << entity.second.model.meshCount << std::endl;
 		std::cout << "Material count: " << entity.second.model.materialCount << std::endl;
+		const TransformComponent& transform = m_transforms.at(entity.first);
 
-		// Draw the model
-		::DrawModel(entity.second.model, { 0, 0, 0 }, 1.0f, WHITE);
+		::DrawModelEx(entity.second.model, transform.position, {1,0,0},transform.Rotation.x, transform.Scale, WHITE);
 
 	}
-	// Draw a cube for debugging
-	//::DrawCube({ 0, 0, 0 }, 2.0f, 2.0f, 2.0f, BLUE);
 }
 
 
