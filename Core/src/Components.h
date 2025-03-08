@@ -19,7 +19,7 @@ struct TransformComponent
     Quaternion rotation = QuaternionIdentity();
     Vector3 scale;
 
-    TransformComponent() {};
+    TransformComponent() = default;
 
     TransformComponent(Vector3 pos, Vector3 eulerDegrees, Vector3 scl);
 

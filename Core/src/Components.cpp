@@ -1,6 +1,7 @@
 #include "Components.h"
 #include "iostream"
 
+
 TransformComponent::TransformComponent(Vector3 pos, Vector3 eulerDegrees, Vector3 scl)
     : position(pos), scale(scl)
 {
