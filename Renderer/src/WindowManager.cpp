@@ -6,7 +6,7 @@ Window::Window(int width, int height, const char* title)
 	InitWindow(width, height, title);
 }
 
-void Window::Draw(Renderer& renderer) // Accept a Renderer object
+void Window::Draw(Renderer& renderer)
 {
     static CameraManager cameraManager;
     cameraManager.Update();
@@ -14,7 +14,7 @@ void Window::Draw(Renderer& renderer) // Accept a Renderer object
     ClearBackground(RED);
     BeginMode3D(cameraManager.GetCamera());
     DrawGrid(10, 5.0f);
-    renderer.Render(); // Use the passed Renderer object
+    renderer.Render();
     HideCursor();
     EndMode3D();
     EndDrawing();

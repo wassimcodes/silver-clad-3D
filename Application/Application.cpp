@@ -1,6 +1,7 @@
 #include "WindowManager.h"
-#include "printer.h"
 #include "Renderer.h"
+#include "Entity.h"
+#include "Components.h"
 
 int main()
 {
@@ -8,7 +9,7 @@ int main()
     Renderer renderer;
 	 
 	Entity entity1 = 1;
-	renderer.LoadModel("C:/Users/woule/Documents/Cpp/SilverClad/Assets/3D_Assets/cottageHouse.obj", entity1, { {0, 30, 0}, {0, 0, 0}, {1, 1, 1} });
+	renderer.LoadModel("D:/Cpp/SilverClad/Assets/3D_Assets/cottageHouse.obj", entity1, { { 0, 0, 0 }, { 0, 0,0 }, { 1, 1, 1 } });
 
     while (!WindowShouldClose()) 
     {

@@ -79,7 +79,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>;D:\Cpp\SilverClad\Renderer\src;D:\Cpp\SilverClad\Physics\src;D:\Cpp\SilverClad\Externals\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>;D:\Cpp\SilverClad\Renderer\src;D:\Cpp\SilverClad\Physics\src;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Core\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -94,7 +94,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>;D:\Cpp\SilverClad\Renderer\src;D:\Cpp\SilverClad\Physics\src;D:\Cpp\SilverClad\Externals\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>;D:\Cpp\SilverClad\Renderer\src;D:\Cpp\SilverClad\Physics\src;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Core\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -109,7 +109,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\woule\Documents\Cpp\SilverClad\Renderer\src;C:\Users\woule\Documents\Cpp\SilverClad\Externals\include;C:\Users\woule\Documents\Cpp\SilverClad\Physics\src;%(AdditionalIncludeDirectories);D:\Cpp\SilverClad\Renderer\src;D:\Cpp\SilverClad\Physics\src;D:\Cpp\SilverClad\Externals\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\woule\Documents\Cpp\SilverClad\Renderer\src;C:\Users\woule\Documents\Cpp\SilverClad\Externals\include;C:\Users\woule\Documents\Cpp\SilverClad\Physics\src;%(AdditionalIncludeDirectories);D:\Cpp\SilverClad\Renderer\src;D:\Cpp\SilverClad\Physics\src;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Core\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,7 +125,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>;D:\Cpp\SilverClad\Renderer\src;D:\Cpp\SilverClad\Physics\src;D:\Cpp\SilverClad\Externals\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>;D:\Cpp\SilverClad\Renderer\src;D:\Cpp\SilverClad\Physics\src;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Core\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,6 +138,9 @@
     <ClCompile Include="Application.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\Core.vcxproj">
+      <Project>{7f53d5a9-8ade-4f85-886a-0ff61ff512ac}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Physics\Physics.vcxproj">
       <Project>{5a34dda8-95dd-4d24-99fc-3b5bd242a59b}</Project>
     </ProjectReference>

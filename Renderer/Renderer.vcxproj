@@ -28,6 +28,11 @@
     <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\WindowManager.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.vcxproj">
+      <Project>{7f53d5a9-8ade-4f85-886a-0ff61ff512ac}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -83,18 +88,18 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
     <LibraryPath>C:\Users\woule\Documents\Cpp\SilverClad\Externals\lib;$(LibraryPath);D:\Cpp\SilverClad\Externals\lib;D:\Cpp\SilverClad\Externals\lib</LibraryPath>
-    <IncludePath>C:\Users\woule\Documents\Cpp\SilverClad\Externals\include;$(IncludePath);D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include</IncludePath>
+    <IncludePath>C:\Users\woule\Documents\Cpp\SilverClad\Externals\include;$(IncludePath);D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Core\src</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Core\src</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);D:\Cpp\SilverClad\Externals\lib;D:\Cpp\SilverClad\Externals\lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Core\src</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);D:\Cpp\SilverClad\Externals\lib;D:\Cpp\SilverClad\Externals\lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Core\src</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);D:\Cpp\SilverClad\Externals\lib;D:\Cpp\SilverClad\Externals\lib</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
