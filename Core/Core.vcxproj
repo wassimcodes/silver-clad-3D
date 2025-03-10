@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\CameraManager.h" />
     <ClInclude Include="src\Components.h" />
     <ClInclude Include="src\Entity.h" />
     <ClInclude Include="src\RenderSystem.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\CameraManager.cpp" />
     <ClCompile Include="src\Components.cpp" />
     <ClCompile Include="src\RenderSystem.cpp" />
   </ItemGroup>

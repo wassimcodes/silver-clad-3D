@@ -32,7 +32,29 @@ void Renderer::LoadTexture(const std::string& path, Entity entity)
 
 void Renderer::Render()
 {
-	m_renderSystem.Render();
+    for (const auto& entity : m_renderSystem.GetEntities())
+    {
+        // Log the entity ID, mesh count, and material count
+        std::cout << "Rendering entity ID: " << entity.first << std::endl;
+        std::cout << "Mesh count: " << entity.second.model.meshCount << std::endl;
+        std::cout << "Material count: " << entity.second.model.materialCount << std::endl;
+
+        // Get the corresponding TransformComponent for the entity
+        const TransformComponent& transform = m_renderSystem.GetTransforms().at(entity.first);
+
+        // Convert the quaternion rotation to an axis-angle representation
+        float angle;
+        Vector3 axis;
+        QuaternionToAxisAngle(transform.rotation, &axis, &angle);
+
+        // Log rotation information
+        std::cout << "Entity ID: " << entity.first << std::endl;
+        std::cout << "Rotation Axis: (" << axis.x << ", " << axis.y << ", " << axis.z << ")" << std::endl;
+        std::cout << "Rotation Angle: " << angle * RAD2DEG << " degrees" << std::endl;
+
+        // Draw the model with the transform properties
+        ::DrawModelEx(entity.second.model, transform.position, axis, angle * RAD2DEG, transform.scale, WHITE);
+    }
 }
 
 

@@ -15,7 +15,6 @@ void Window::Draw(Renderer& renderer)
     BeginMode3D(cameraManager.GetCamera());
     DrawGrid(10, 5.0f);
     renderer.Render();
-    HideCursor();
     EndMode3D();
     EndDrawing();
 }

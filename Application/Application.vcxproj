@@ -135,9 +135,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Core\Core.vcxproj">
       <Project>{7f53d5a9-8ade-4f85-886a-0ff61ff512ac}</Project>
     </ProjectReference>
@@ -147,6 +144,9 @@
     <ProjectReference Include="..\Renderer\Renderer.vcxproj">
       <Project>{7c594f27-7db8-4abf-aa1a-0444e08543bc}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Script\Application.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

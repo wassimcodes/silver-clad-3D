@@ -19,12 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\CameraManager.h" />
     <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\WindowManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\CameraManager.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\WindowManager.cpp" />
   </ItemGroup>
