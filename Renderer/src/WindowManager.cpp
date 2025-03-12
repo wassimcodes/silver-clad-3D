@@ -13,7 +13,7 @@ void Window::Draw(Renderer& renderer)
     BeginDrawing();
     ClearBackground(RED);
     BeginMode3D(cameraManager.GetCamera());
-    DrawGrid(10, 5.0f);
+    //DrawGrid(30, 5.0f);
     renderer.Render();
     EndMode3D();
     EndDrawing();

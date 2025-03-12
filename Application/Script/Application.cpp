@@ -5,11 +5,13 @@
 
 int main()
 {
-	Window window(720, 480, "Silver Clad");
+	Window window(1280, 720, "Silver Clad");
 	Renderer renderer;
 
-	Entity entity1 = 1;
-	renderer.LoadModel("Assets/3D_Assets/cottageHouse.obj", entity1, { { 0, 0, 0 }, { 0, 0, 0 }, { 3, 3, 3 } });
+	Entity entity1(1);
+	Entity entity2(2);
+	renderer.LoadModel("Assets/3D_Assets/cottageHouse.obj", entity1, { { 0, 0, 0 }, { 0, 0, 0 }, { 1, 1, 1 } });
+	renderer.LoadModel("Assets/3D_Assets/Floor.obj", entity2, { { 0, 0, 0 }, { 0, 0, 0 }, { 3, 3, 3 } });
 
 	while (!WindowShouldClose())
 	{
