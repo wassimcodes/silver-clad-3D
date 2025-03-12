@@ -85,8 +85,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <LibraryPath>C:\Users\woule\Documents\Cpp\SilverClad\Externals\lib;$(LibraryPath);D:\Cpp\SilverClad\Externals\lib;D:\Cpp\SilverClad\Externals\lib</LibraryPath>
-    <IncludePath>C:\Users\woule\Documents\Cpp\SilverClad\Externals\include;$(IncludePath);D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Core\src</IncludePath>
+    <LibraryPath>../Externals/lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>../Externals/include;../Core/src</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Externals\include;D:\Cpp\SilverClad\Core\src</IncludePath>

@@ -20,16 +20,6 @@ void Renderer::LoadModel(const std::string& path, Entity entity, TransformCompon
 	m_entities.push_back(entity);
 }
 
-void Renderer::LoadTexture(const std::string& path, Entity entity)
-{
-	Texture2D texture = ::LoadTexture(path.c_str());
-	ModelComponent& modelComponent = const_cast<ModelComponent&>(m_renderSystem.GetEntities().at(entity.GetID()));
-	for (int i = 0; i < modelComponent.model.materialCount; i++)
-	{
-		modelComponent.model.materials[i].maps[MATERIAL_MAP_DIFFUSE].texture = texture;
-	}
-}
-
 void Renderer::Render()
 {
     for (const auto& entity : m_renderSystem.GetEntities())

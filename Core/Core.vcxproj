@@ -90,8 +90,8 @@
     <LibraryPath>D:\Cpp\SilverClad\Externals\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Cpp\SilverClad\Externals\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Cpp\SilverClad\Externals\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>../Externals\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>D:\Cpp\SilverClad\Externals\include;$(IncludePath)</IncludePath>

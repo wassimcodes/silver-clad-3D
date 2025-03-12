@@ -14,7 +14,6 @@ public:
 	Renderer();
 	~Renderer();
 	void LoadModel(const std::string& path, Entity entity, TransformComponent transform);
-	void LoadTexture(const std::string& path, Entity entity);
 	void Render();
 private:
 	RenderSystem m_renderSystem;
