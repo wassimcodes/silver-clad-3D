@@ -5,7 +5,7 @@
 
 int main()
 {
-	Window window(1920, 1080, "Silver Clad");
+	Window window(720, 480, "Silver Clad");
 	Renderer renderer;
 
 	Entity entity1 = 1;

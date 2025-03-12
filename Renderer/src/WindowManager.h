@@ -6,8 +6,10 @@ class Window
 {
 public:
 	Window(int width, int height, const char* title);
-	void Draw(Renderer& renderer);
 	~Window();
+
+	void Draw(Renderer& renderer);
+	
 };
 
 
