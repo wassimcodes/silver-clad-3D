@@ -5,9 +5,10 @@ void RenderSystem::AddEntity(Entity entity, ModelComponent modelComponent, Trans
 {
 	m_entities[entity.GetID()] = modelComponent;
 	m_transforms[entity.GetID()] = transformComponent;
+
 }
 
-const std::unordered_map<int, ModelComponent>& RenderSystem::GetEntities() const
+std::unordered_map<int, ModelComponent>& RenderSystem::GetEntities()
 {
 	return m_entities;
 }

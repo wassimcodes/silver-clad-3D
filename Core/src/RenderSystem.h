@@ -8,7 +8,7 @@ class RenderSystem
 {
 public:
 	void AddEntity(Entity entity, ModelComponent modelComponent, TransformComponent transformComponent);
-	const std::unordered_map<int, ModelComponent>& GetEntities() const;
+	std::unordered_map<int, ModelComponent>& GetEntities();
 	const std::unordered_map<int, TransformComponent>& GetTransforms() const;
 
 private:

@@ -6,7 +6,7 @@ Window::Window(int width, int height, const char* title)
 	InitWindow(width, height, title);
 }
 
-void Window::Draw(Renderer& renderer)
+void Window::Draw(Renderer& renderer, LightManager& lightManager)
 {
     static CameraManager cameraManager;
     cameraManager.Update();
@@ -15,6 +15,8 @@ void Window::Draw(Renderer& renderer)
     BeginMode3D(cameraManager.GetCamera());
     //DrawGrid(30, 5.0f);
     renderer.Render();
+	lightManager.RenderPointLights(cameraManager);
+    
     EndMode3D();
     EndDrawing();
 }
