@@ -103,7 +103,7 @@ vec3 ComputePBR()
     vec3 baseRefl = mix(vec3(0.04), albedo.rgb, metallic);
     vec3 lightAccum = vec3(0.0);  // Acumulate lighting lum
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < MAX_LIGHTS; i++)
     {
         vec3 L = normalize(lights[i].position - fragPosition);      // Compute light vector
         vec3 H = normalize(V + L);                                  // Compute halfway bisecting vector

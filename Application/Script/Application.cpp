@@ -24,7 +24,10 @@ int main()
 
 	renderer.SetShader(shaderManager);
 
-	lightManager.AddLight(lightManager.LIGHT_POINT, Vector3{ .0f, 15.0f, 3.0f }, Vector3{ 0.0f, 0.0f, 0.0f},WHITE, 100.0f);
+	lightManager.AddLight(lightManager.LIGHT_POINT, Vector3{ 5.0f, 10.0f, 5.0f }, Vector3{ 0.0f, 0.0f, 0.0f }, BLUE, 100.0f);
+	lightManager.AddLight(lightManager.LIGHT_POINT, Vector3{ -5.0f, 10.0f, 5.0f }, Vector3{ 0.0f, 0.0f, 0.0f }, GREEN, 100.0f);
+	lightManager.AddLight(lightManager.LIGHT_POINT, Vector3{ 0.0f, 5.0f, -10.0f }, Vector3{ 0.0f, 0.0f, 0.0f }, YELLOW, 100.0f);
+
 
 	Entity carEntity(1);
 	renderer.LoadModel("Assets/models/glb/old_car_new.glb", carEntity, { { 0, 0, 0 }, { 0, 0, 0 }, { 1, 1, 1 } });
@@ -34,8 +37,6 @@ int main()
 	renderer.LoadTexture(carEntity, MATERIAL_MAP_METALNESS, "Assets/textures/oldcar/old_car_mra.png");
 	renderer.LoadTexture(carEntity, MATERIAL_MAP_NORMAL, "Assets/textures/oldcar/old_car_n.png");
 	
-	
-
 	while (!WindowShouldClose())
 	{
 		window.Draw(renderer, lightManager);

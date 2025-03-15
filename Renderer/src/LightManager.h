@@ -38,7 +38,7 @@ public:
     ~LightManager();
 
     void AddLight(int type, const Vector3& position, const Vector3& target, Color color, float intensity);
-	void UpdateLight(int index);
+    void UpdateLight(int index);
     void updateAllLights();
     void ToggleLight(int index);
     void RenderPointLights(CameraManager& cameraManager);
@@ -47,8 +47,8 @@ public:
 
 private:
     // add m_shader from shader manager
-	ShaderManager& m_shaderManager;
-	std::vector<Light> m_lights;
+    ShaderManager& m_shaderManager;
+    std::vector<Light> m_lights;
     int m_lightCount;
 
 };

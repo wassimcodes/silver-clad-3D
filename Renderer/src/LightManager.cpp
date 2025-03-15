@@ -9,9 +9,9 @@ LightManager::~LightManager(){}
 
 void LightManager::AddLight(int type, const Vector3& position, const Vector3& target, Color color, float intensity)
 {
-	if (m_lightCount >= MAX_LIGHTS)
+	if (m_lightCount > MAX_LIGHTS)
 	{
-		std::cerr << "You have reached the maximum number of lights!" << std::endl;
+		std::cout << "You have reached the maximum number of lights!" << std::endl;
 		return;
 	}
 
@@ -41,6 +41,7 @@ void LightManager::AddLight(int type, const Vector3& position, const Vector3& ta
 	std::cout << "Light added: " << m_lightCount << std::endl;
 
 }
+
 
 void LightManager::UpdateLight(int index)
 {
@@ -106,11 +107,11 @@ void LightManager::RenderPointLights(CameraManager& cameraManager)
 
 		if (light.enabled)
 		{
-			DrawSphereEx(light.position,3.f, 16, 16, lightColor);
+			DrawSphereEx(light.position,0.75f, 16, 16, lightColor);
 		}
 		else
 		{
-			DrawSphereWires(light.position, 0.2f, 8, 8, ColorAlpha(lightColor, 0.3f));
+			DrawSphereWires(light.position, 0.75f, 8, 8, ColorAlpha(lightColor, 0.3f));
 		}
 
 	}

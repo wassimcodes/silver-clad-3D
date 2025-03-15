@@ -56,15 +56,15 @@ void Renderer::SetShader(ShaderManager& shaderManager)
 void Renderer::Render(CameraManager* iCameraManager) {
     Shader pbrShader = m_shaderManager->GetShader();
 
-    // Set ambient color and intensity
-    Vector3 ambientColor = { 26.0f / 255.0f, 32.0f / 255.0f, 135.0f / 255.0f };
-    float ambientIntensity = 0.02f;
-    m_shaderManager->SetAmbientColor(ambientColor, ambientIntensity);
+    //// Set ambient color and intensity
+    //Vector3 ambientColor = { 26.0f / 255.0f, 32.0f / 255.0f, 135.0f / 255.0f };
+    //float ambientIntensity = 0.02f;
+    //m_shaderManager->SetAmbientColor(ambientColor, ambientIntensity);
 
-    // Set emissive parameters
-    float emissiveIntensity = 1.0f;
-    Vector4 emissiveColor = { 1.0f, 1.0f, 1.0f, 1.0f }; // White emission
-    m_shaderManager->SetEmissiveParameters(emissiveIntensity, emissiveColor);
+    //// Set emissive parameters
+    //float emissiveIntensity = 1.0f;
+    //Vector4 emissiveColor = { 1.0f, 1.0f, 1.0f, 1.0f }; // White emission
+    //m_shaderManager->SetEmissiveParameters(emissiveIntensity, emissiveColor);
 
     for (const auto& entity : m_renderSystem.GetEntities()) {
         const TransformComponent& transform = m_renderSystem.GetTransforms().at(entity.first);
