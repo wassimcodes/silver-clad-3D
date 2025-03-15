@@ -6,8 +6,8 @@
 #define PI 3.141592653589793238462643383279502884197169
 
 struct Light {
-    int enabled;
     int type;
+    int enabled;
     vec3 position;
     vec3 target;
     vec4 color;
@@ -32,13 +32,7 @@ uniform sampler2D mraMap;
 uniform sampler2D normalMap;
 uniform sampler2D emissiveMap; // r: Hight g:emissive
 
-uniform vec2 tiling;
-uniform vec2 offset;
-
 uniform int useTexAlbedo;
-uniform int useTexNormal;
-uniform int useTexMRA;
-uniform int useTexEmissive;
 
 uniform vec4  albedoColor;
 uniform vec4  emissiveColor;
@@ -82,40 +76,34 @@ float GeomSmith(float nDotV,float nDotL,float roughness)
 
 vec3 ComputePBR()
 {
-    vec3 albedo = texture(albedoMap,vec2(fragTexCoord.x*tiling.x + offset.x, fragTexCoord.y*tiling.y + offset.y)).rgb;
-    albedo = vec3(albedoColor.x*albedo.x, albedoColor.y*albedo.y, albedoColor.z*albedo.z);
+    vec3 albedo = texture(albedoMap,vec2(fragTexCoord.x, fragTexCoord.y)).rgb;
+    albedo = vec3(1.0*albedo.x, 1.0*albedo.y, 1.0*albedo.z);
     
-    float metallic = clamp(metallicValue, 0.0, 1.0);
+    float metallic = 1;
     float roughness = clamp(roughnessValue, 0.0, 1.0);
     float ao = clamp(aoValue, 0.0, 1.0);
     
-    if (useTexMRA == 1)
-    {
-        vec4 mra = texture(mraMap, vec2(fragTexCoord.x*tiling.x + offset.x, fragTexCoord.y*tiling.y + offset.y));
-        metallic = clamp(mra.r + metallicValue, 0.04, 1.0);
-        roughness = clamp(mra.g + roughnessValue, 0.04, 1.0);
-        ao = (mra.b + aoValue)*0.5;
-    }
+    vec4 mra = texture(mraMap, vec2(fragTexCoord.x, fragTexCoord.y));
+    metallic = clamp(mra.r + metallicValue, 0.04, 1.0);
+    roughness = clamp(mra.g + roughnessValue, 0.04, 1.0);
+    ao = (mra.b + aoValue)*0.5;
 
     vec3 N = normalize(fragNormal);
-    if (useTexNormal == 1)
-    {
-        N = texture(normalMap, vec2(fragTexCoord.x*tiling.x + offset.y, fragTexCoord.y*tiling.y + offset.y)).rgb;
-        N = normalize(N*2.0 - 1.0);
-        N = normalize(N*TBN);
-    }
+    N = texture(normalMap, vec2(fragTexCoord.x , fragTexCoord.y)).rgb;
+    N = normalize(N*2.0 - 1.0);
+    N = normalize(N*TBN);
 
     vec3 V = normalize(viewPos - fragPosition);
 
     vec3 emissive = vec3(0);
-    emissive = (texture(emissiveMap, vec2(fragTexCoord.x*tiling.x + offset.x, fragTexCoord.y*tiling.y + offset.y)).rgb).g*emissiveColor.rgb*emissivePower*useTexEmissive;
+    emissive = (texture(emissiveMap, vec2(fragTexCoord.x , fragTexCoord.y )).rgb).g*emissiveColor.rgb*emissivePower;
 
     // return N;//vec3(metallic,metallic,metallic);
     // If  dia-electric use base reflectivity of 0.04 otherwise ut is a metal use albedo as base reflectivity
     vec3 baseRefl = mix(vec3(0.04), albedo.rgb, metallic);
     vec3 lightAccum = vec3(0.0);  // Acumulate lighting lum
 
-    for (int i = 0; i < numOfLights; i++)
+    for (int i = 0; i < 2; i++)
     {
         vec3 L = normalize(lights[i].position - fragPosition);      // Compute light vector
         vec3 H = normalize(V + L);                                  // Compute halfway bisecting vector

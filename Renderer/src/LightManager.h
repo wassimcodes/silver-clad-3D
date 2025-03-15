@@ -37,7 +37,7 @@ public:
     LightManager(ShaderManager& shaderManager);
     ~LightManager();
 
-    void AddLight(int type, Vector3 position, Vector3 target, Color color, float intensity);
+    void AddLight(int type, const Vector3& position, const Vector3& target, Color color, float intensity);
 	void UpdateLight(int index);
     void updateAllLights();
     void ToggleLight(int index);

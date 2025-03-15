@@ -9,6 +9,7 @@
 
 int main()
 {
+
 	Window window(1280, 720, "Silver Clad");
 	Renderer renderer;
 
@@ -23,7 +24,7 @@ int main()
 
 	renderer.SetShader(shaderManager);
 
-	lightManager.AddLight(lightManager.LIGHT_DIRECTIONAL, Vector3{ .0f, 5.0f, 3.0f }, Vector3{ 0.0f, 0.0f, 0.0f},YELLOW, 50.0f);
+	lightManager.AddLight(lightManager.LIGHT_POINT, Vector3{ .0f, 15.0f, 3.0f }, Vector3{ 0.0f, 0.0f, 0.0f},WHITE, 100.0f);
 
 	Entity carEntity(1);
 	renderer.LoadModel("Assets/models/glb/old_car_new.glb", carEntity, { { 0, 0, 0 }, { 0, 0, 0 }, { 1, 1, 1 } });

@@ -7,7 +7,7 @@ LightManager::LightManager(ShaderManager& shaderManager)
 
 LightManager::~LightManager(){}
 
-void LightManager::AddLight(int type, Vector3 position, Vector3 target, Color color, float intensity)
+void LightManager::AddLight(int type, const Vector3& position, const Vector3& target, Color color, float intensity)
 {
 	if (m_lightCount >= MAX_LIGHTS)
 	{
@@ -17,7 +17,7 @@ void LightManager::AddLight(int type, Vector3 position, Vector3 target, Color co
 
     Light light;
 	light.type = type;
-	light.enabled = true;
+	light.enabled = 1;
 	light.position = position;
 	light.target = target;
 	light.color[0] = (float)color.r / 255.0f;
@@ -27,8 +27,8 @@ void LightManager::AddLight(int type, Vector3 position, Vector3 target, Color co
 	light.intensity = intensity;
 
 	// Set shader locations for light properties
-	light.enabledLoc = m_shaderManager.GetLocation(TextFormat("lights[%i].enabled", m_lightCount));
 	light.typeLoc = m_shaderManager.GetLocation(TextFormat("lights[%i].type", m_lightCount));
+	light.enabledLoc = m_shaderManager.GetLocation(TextFormat("lights[%i].enabled", m_lightCount));
 	light.positionLoc = m_shaderManager.GetLocation(TextFormat("lights[%i].position", m_lightCount));
 	light.targetLoc = m_shaderManager.GetLocation(TextFormat("lights[%i].target", m_lightCount));
 	light.colorLoc = m_shaderManager.GetLocation(TextFormat("lights[%i].color", m_lightCount));

@@ -9,6 +9,8 @@
 #include <vector>
 #include "string"
 
+class CameraManager;
+
 class Renderer
 {
 public:
@@ -19,7 +21,7 @@ public:
 	void LoadTexture(Entity entity, int mapType, const std::string& texturePath);
 	void SetShader(ShaderManager& shaderManager);
 
-	void Render();
+	void Render(CameraManager* iCameraManager);
 	
 private:
 	RenderSystem m_renderSystem;
