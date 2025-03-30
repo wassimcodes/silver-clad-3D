@@ -13,9 +13,8 @@ CameraManager::CameraManager()
 
 void CameraManager::Update()
 {
-    UpdateCamera(&m_camera, CAMERA_FIRST_PERSON);
+    UpdateCamera(&m_camera, CAMERA_FREE);
     SetMousePosition(GetScreenWidth() / 2, GetScreenHeight() / 2);
-
 }
 
 Camera CameraManager::GetCamera() const
