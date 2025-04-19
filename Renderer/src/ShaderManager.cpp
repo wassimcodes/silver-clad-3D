@@ -20,8 +20,6 @@ bool ShaderManager::LoadShader(const std::string& vertexShaderPath, const std::s
         std::cerr << "Failed to load shader!" << std::endl;
         return false;
     }
-
-    // Set up shader locations for material maps and lighting
     SetupMaterialMapLocations();
     SetupLightingParameters();
 
