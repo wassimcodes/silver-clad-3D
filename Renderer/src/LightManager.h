@@ -46,6 +46,7 @@ public:
     const std::vector<Light>& GetLights() const;
 
 private:
+    // add m_shader from shader manager
     ShaderManager& m_shaderManager;
     std::vector<Light> m_lights;
     int m_lightCount;

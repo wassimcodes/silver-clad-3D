@@ -53,8 +53,6 @@ void ShaderManager::SetupMaterialMapLocations() {
     std::cout << "  MRA Map: " << m_mraMapLoc << std::endl;
     std::cout << "  Normal Map: " << m_normalMapLoc << std::endl;
     std::cout << "  Emissive Map: " << m_emissiveMapLoc << std::endl;
-
-
 }
 
 void ShaderManager::SetupLightingParameters() {
@@ -70,20 +68,16 @@ void ShaderManager::SetupLightingParameters() {
     std::cout << "  Ambient Intensity: " << m_ambientIntensityLoc << std::endl;
     std::cout << "  Emissive Intensity: " << m_emissiveIntensityLoc << std::endl;
     std::cout << "  Emissive Color: " << m_emissiveColorLoc << std::endl;
-
-    if (m_viewPosLoc == -1 || m_ambientColorLoc == -1 || m_ambientIntensityLoc == -1) {
-        std::cerr << "Error: One or more lighting parameter locations are invalid!" << std::endl;
-    }
 }
 
-//void ShaderManager::SetAmbientColor(const Vector3& color, float intensity) {
-//    SetShaderValue(m_ambientColorLoc, &color, SHADER_UNIFORM_VEC3);
-//    SetShaderValue(m_ambientIntensityLoc, &intensity, SHADER_UNIFORM_FLOAT);
-//}
+void ShaderManager::SetAmbientColor(const Vector3& color, float intensity) {
+    SetShaderValue(m_ambientColorLoc, &color, SHADER_UNIFORM_VEC3);
+    SetShaderValue(m_ambientIntensityLoc, &intensity, SHADER_UNIFORM_FLOAT);
+}
 
-//void ShaderManager::SetEmissiveParameters(float intensity, const Vector4& color) {
-//    SetShaderValue(m_emissiveIntensityLoc, &intensity, SHADER_UNIFORM_FLOAT);
-//    SetShaderValue(m_emissiveColorLoc, &color, SHADER_UNIFORM_VEC4);
-//}
+void ShaderManager::SetEmissiveParameters(float intensity, const Vector4& color) {
+    SetShaderValue(m_emissiveIntensityLoc, &intensity, SHADER_UNIFORM_FLOAT);
+    SetShaderValue(m_emissiveColorLoc, &color, SHADER_UNIFORM_VEC4);
+}
 
 
