@@ -21,7 +21,7 @@
     <ClInclude Include="src\Components.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\EntityManager.h">
+    <ClInclude Include="src\RenderSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\CameraManager.h">
@@ -29,7 +29,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\EntityManager.cpp">
+    <ClCompile Include="src\RenderSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Components.cpp">

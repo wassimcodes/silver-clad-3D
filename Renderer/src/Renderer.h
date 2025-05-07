@@ -3,7 +3,7 @@
 #include "raylib/raylib.h"
 #include "Entity.h"
 #include "Components.h"
-#include "EntityManager.h"
+#include "RenderSystem.h"
 #include "ShaderManager.h"
 
 #include <vector>
@@ -17,14 +17,14 @@ public:
 	Renderer();
 	~Renderer();
 
-	void LoadModel(const std::string& modelPath, ModelComponent& modelComponent);
-	void LoadTexture(const std::string& texturePath, ModelComponent& modelComponent, int mapType);
+	void LoadModel(const std::string& modelPath, Entity entity, TransformComponent transform);
+	void LoadTexture(Entity entity, int mapType, const std::string& texturePath);
 	void SetShader(ShaderManager& shaderManager);
 
-	void Render(EntityManager& entityManager, CameraManager* iCameraManager);
+	void Render(CameraManager* iCameraManager);
 	
 private:
-	EntityManager m_renderSystem;
+	RenderSystem m_renderSystem;
 	std::vector<Entity> m_entities;
 	int m_nextEntityID;
 	ShaderManager* m_shaderManager;

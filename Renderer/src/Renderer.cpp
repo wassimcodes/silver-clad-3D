@@ -18,62 +18,62 @@ Renderer::~Renderer()
 	}
 }
 
-void Renderer::LoadModel(const std::string& modelPath, ModelComponent& modelComponent)
+void Renderer::LoadModel(const std::string& modelPath, Entity entity, TransformComponent transform)
 {
-	modelComponent.model = ::LoadModel(modelPath.c_str());
+	Model model = ::LoadModel(modelPath.c_str());
+
+	ModelComponent modelComponent = { model };
+	m_renderSystem.AddEntity(entity, modelComponent, transform);
+	m_entities.push_back(entity);
 }
 
-void Renderer::LoadTexture(const std::string& texturePath, ModelComponent& modelComponent, int mapType) 
-{
-	Texture2D texture = ::LoadTexture(texturePath.c_str());
-	modelComponent.model.materials[0].maps[mapType].texture = texture;
-	modelComponent.textures.push_back(texture);
+void Renderer::LoadTexture(Entity entity, int mapType, const std::string& texturePath) {
+    auto& entities = m_renderSystem.GetEntities();
+    if (entities.find(entity.GetID()) != entities.end()) {
+        Model& model = entities.at(entity.GetID()).model;
+
+        if (mapType >= 0 && mapType < MATERIAL_MAP_BRDF)
+        {
+            Texture2D texture = ::LoadTexture(texturePath.c_str());
+            model.materials[0].maps[mapType].texture = texture;
+        }
+        else {
+            std::cerr << "Entity not found: " << entity.GetID() << std::endl;
+        }
+    }
 }
 
 void Renderer::SetShader(ShaderManager& shaderManager)
 {
     m_shaderManager = &shaderManager;
 
+    // Ensure the shader is loaded
     Shader shader = m_shaderManager->GetShader();
-    if (shader.id == 0) 
-    {
+    if (shader.id == 0) {
         std::cerr << "Shader is not loaded!" << std::endl;
         return;
     }
 }
 
-void Renderer::Render(EntityManager& entityManager, CameraManager* cameraManager) {
+void Renderer::Render(CameraManager* iCameraManager) {
     Shader pbrShader = m_shaderManager->GetShader();
 
-    std::unordered_map<int, ModelComponent>& entities = entityManager.GetEntities();
-    for (std::pair<const int, ModelComponent>& entityPair : entities) {
-        int entityID = entityPair.first;
-        ModelComponent& modelComponent = entityPair.second;
+    for (const auto& entity : m_renderSystem.GetEntities()) {
 
-        // Access the corresponding TransformComponent
-        const std::unordered_map<int, TransformComponent>& transforms = entityManager.GetTransforms();
-        std::unordered_map<int, TransformComponent>::const_iterator transformIt = transforms.find(entityID);
-        if (transformIt == transforms.end()) {
-            std::cerr << "TransformComponent not found for entity ID: " << entityID << std::endl;
-            continue;
-        }
+        const TransformComponent& transform = m_renderSystem.GetTransforms().at(entity.first);
 
-        const TransformComponent& transformComponent = transformIt->second;
-
-        // Assign the shader to all materials
-        for (int i = 0; i < modelComponent.model.materialCount; i++) 
-        {
-            modelComponent.model.materials[i].shader = pbrShader;
+        Model model = entity.second.model;
+        for (int i = 0; i < model.materialCount; i++) {
+            model.materials[i].shader = pbrShader;
         }
 
         float angle;
         Vector3 axis;
-        QuaternionToAxisAngle(transformComponent.rotation, &axis, &angle);
-        Vector3 cameraPos = cameraManager->GetCamera().position;
-        m_shaderManager->SetShaderValue(m_shaderManager->GetLocation("viewPos"), &cameraPos, SHADER_UNIFORM_VEC3);
+        QuaternionToAxisAngle(transform.rotation, &axis, &angle);
+        Vector3 CameraPos = iCameraManager->GetCamera().position;
+        m_shaderManager->SetShaderValue(m_shaderManager->GetLocation("viewPos"), &CameraPos, SHADER_UNIFORM_VEC3);
 
-        // Render the model
-        ::DrawModelEx(modelComponent.model, transformComponent.position, axis, angle * RAD2DEG, transformComponent.scale, WHITE);
-
+        ::DrawModelEx(model, transform.position, axis, angle * RAD2DEG, transform.scale, WHITE);
     }
 }
+
