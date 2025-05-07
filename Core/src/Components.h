@@ -4,11 +4,18 @@
 #include "raylib/raylib.h"
 #include "raylib/raymath.h"
 
+class Component
+{
+public:
+	virtual ~Component() = default;
+};
+
 Quaternion EulerToQuaternion(Vector3 eulerDegrees);
 
 struct ModelComponent
 {
 	Model model;
+	Texture2D textures;
 };
 
 

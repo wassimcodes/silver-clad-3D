@@ -4,7 +4,7 @@
 #include "Entity.h"
 #include <unordered_map>
 
-class RenderSystem
+class EntityManager
 {
 public:
 	void AddEntity(Entity entity, ModelComponent modelComponent, TransformComponent transformComponent);

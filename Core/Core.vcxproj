@@ -22,12 +22,12 @@
     <ClInclude Include="src\CameraManager.h" />
     <ClInclude Include="src\Components.h" />
     <ClInclude Include="src\Entity.h" />
-    <ClInclude Include="src\RenderSystem.h" />
+    <ClInclude Include="src\EntityManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CameraManager.cpp" />
     <ClCompile Include="src\Components.cpp" />
-    <ClCompile Include="src\RenderSystem.cpp" />
+    <ClCompile Include="src\EntityManager.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

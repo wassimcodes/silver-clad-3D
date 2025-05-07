@@ -28,22 +28,26 @@ int main()
 	lightManager.AddLight(lightManager.LIGHT_POINT, Vector3{ -5.0f, 10.0f, 5.0f }, Vector3{ 0.0f, 0.0f, 0.0f }, GREEN, 100.0f);
 	lightManager.AddLight(lightManager.LIGHT_POINT, Vector3{ 0.0f, 10.0f, -10.0f }, Vector3{ 0.0f, 0.0f, 0.0f }, YELLOW, 100.0f);
 
+	EntityManager entityManager;
 
 	Entity carEntity(1);
-	renderer.LoadModel("Assets/models/glb/old_car_new.glb", carEntity, { { 3, 0, 0 }, { 0, 0, 0 }, { 1, 1, 1 } });
-
-
-	renderer.LoadTexture(carEntity, MATERIAL_MAP_ALBEDO, "Assets/textures/oldcar/old_car_d.png");
-	renderer.LoadTexture(carEntity, MATERIAL_MAP_EMISSION, "Assets/textures/oldcar/old_car_e.png");
-	renderer.LoadTexture(carEntity, MATERIAL_MAP_METALNESS, "Assets/textures/oldcar/old_car_mra.png");
-	renderer.LoadTexture(carEntity, MATERIAL_MAP_NORMAL, "Assets/textures/oldcar/old_car_n.png");
+	ModelComponent carModel;
+	renderer.LoadModel("Assets/models/glb/old_car_new.glb", carModel);
+	renderer.LoadTexture("Assets/textures/oldcar/old_car_d.png", carModel, MATERIAL_MAP_ALBEDO);
+	renderer.LoadTexture("Assets/textures/oldcar/old_car_e.png", carModel, MATERIAL_MAP_EMISSION);
+	renderer.LoadTexture("Assets/textures/oldcar/old_car_mra.png", carModel, MATERIAL_MAP_METALNESS);
+	renderer.LoadTexture("Assets/textures/oldcar/old_car_n.png", carModel, MATERIAL_MAP_NORMAL);
+	TransformComponent carTransform = { {3, 0, 0},{1,1,1}, {1, 1, 1}};
+	entityManager.AddEntity(carEntity, carModel, carTransform);
 	
 	Entity cubeEntity(2);
-	renderer.LoadModel("Assets/models/glb/cube.glb", cubeEntity, { { 10, 0,5 }, { 0, 0, 0 }, { 5, 2, 5} });
-
-	renderer.LoadTexture(cubeEntity, MATERIAL_MAP_ALBEDO, "Assets/textures/oldcar/metal_d.jpg");
-	renderer.LoadTexture(cubeEntity, MATERIAL_MAP_METALNESS, "Assets/textures/oldcar/metal_mra.jpg");
-	renderer.LoadTexture(cubeEntity, MATERIAL_MAP_NORMAL, "Assets/textures/oldcar/metal_n.png");
+	ModelComponent cubeModel;
+	renderer.LoadModel("Assets/models/glb/cube.glb", cubeModel);
+	renderer.LoadTexture("Assets/textures/oldcar/metal_d.jpg", cubeModel, MATERIAL_MAP_ALBEDO);
+	renderer.LoadTexture("Assets/textures/oldcar/metal_mra.jpg", cubeModel, MATERIAL_MAP_METALNESS);
+	renderer.LoadTexture("Assets/textures/oldcar/metal_n.png", cubeModel, MATERIAL_MAP_NORMAL);
+	TransformComponent cubeTransform = { {10, 0, 5}, {1,1,1}, {5, 2, 5} };
+	entityManager.AddEntity(cubeEntity, cubeModel, cubeTransform);
 
 
 	while (!WindowShouldClose())
