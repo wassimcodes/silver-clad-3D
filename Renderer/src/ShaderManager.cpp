@@ -76,14 +76,4 @@ void ShaderManager::SetupLightingParameters() {
     }
 }
 
-//void ShaderManager::SetAmbientColor(const Vector3& color, float intensity) {
-//    SetShaderValue(m_ambientColorLoc, &color, SHADER_UNIFORM_VEC3);
-//    SetShaderValue(m_ambientIntensityLoc, &intensity, SHADER_UNIFORM_FLOAT);
-//}
-
-//void ShaderManager::SetEmissiveParameters(float intensity, const Vector4& color) {
-//    SetShaderValue(m_emissiveIntensityLoc, &intensity, SHADER_UNIFORM_FLOAT);
-//    SetShaderValue(m_emissiveColorLoc, &color, SHADER_UNIFORM_VEC4);
-//}
-
 

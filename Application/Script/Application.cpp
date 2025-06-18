@@ -39,7 +39,7 @@ int main()
 	renderer.LoadTexture(carEntity, MATERIAL_MAP_NORMAL, "Assets/textures/oldcar/old_car_n.png");
 	
 	Entity cubeEntity(2);
-	renderer.LoadModel("Assets/models/glb/cube.glb", cubeEntity, { { 10, 0,5 }, { 0, 0, 0 }, { 5, 2, 5} });
+	renderer.LoadModel("Assets/models/glb/cube.glb", cubeEntity, { { 10, -2,5 }, { 0, 0, 0 }, { 5, 2, 5} });
 
 	renderer.LoadTexture(cubeEntity, MATERIAL_MAP_ALBEDO, "Assets/textures/oldcar/metal_d.jpg");
 	renderer.LoadTexture(cubeEntity, MATERIAL_MAP_METALNESS, "Assets/textures/oldcar/metal_mra.jpg");
