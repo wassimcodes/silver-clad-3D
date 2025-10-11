@@ -16,5 +16,4 @@ This is a simple 3D renderer built from scratch using [Raylib](https://www.rayli
 * Point lights
 
   
-![Screenshot 2025-06-18 151252](https://github.com/user-attachments/assets/3fa252e5-5a4a-4c00-986c-6abf825c842b)
-![Screenshot 2025-06-18 151309](https://github.com/user-attachments/assets/ba42afca-029b-49f9-869f-8cc0156514ee)
+![Screenshot 2025-06-18 151252](https://github.com/wassimcodes/silver-clad-3D/blob/master/Screenshots/gif1.gif)
