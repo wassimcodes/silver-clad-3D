@@ -10,7 +10,7 @@
 int main()
 {
 
-	Window window(1280, 720, "Silver Clad");
+	Window window(1920, 1080, "Silver Clad");
 	Renderer renderer;
 
 	ShaderManager shaderManager;
