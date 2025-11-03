@@ -1,12 +1,12 @@
 
 
-# 🧱 Basic 3D Renderer: C++ & Raylib
+# 3D Renderer
 
 This is a simple 3D renderer built from scratch using [Raylib](https://www.raylib.com/) and C++. It’s a learning project focused on the fundamentals of rendering 3D objects, transformations, and camera control.
 
 ![Screenshot 2025-06-18 151235](https://github.com/user-attachments/assets/1e91beff-61fb-4abe-a3f0-c876a22b791f)
 
-## ✨ Features
+## Features
 
 * Basic 3D rendering using Raylib
 * PBR Shading
